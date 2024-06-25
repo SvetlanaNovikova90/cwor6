@@ -1,0 +1,32 @@
+{% extends 'newsletter/basic_emplate.html' %}
+{% load mediapath %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <h3 class="card-title">{{ object.name_company }}</h3>
+
+                <!-- Вывод информации о рассылке -->
+                <p>Адрес: {{ object.address }}</p>
+                <p>Телефон: {{ object.phone }}</p>
+                <p>Почта компании: {{ object.email_company }}</p>
+
+                <!-- Форма для блокировки/разблокировки -->
+                <form method="post" action="{% url 'mailing:toggle_block_partners' partner_id=object.id %}">
+                    {% csrf_token %}
+                    <button type="submit">
+                        {% if object.is_active %}
+                            Заблокировать
+                        {% else %}
+                            Разблокировать
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+        </div>
+</div>
+
+{% endblock %}

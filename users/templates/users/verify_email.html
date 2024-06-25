@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'newsletter/basic_emplate.html' %}
 
 {% block content %}
   <h2>Введите код</h2>
@@ -7,6 +7,6 @@
     <form method="post" action="{% url 'users:verify_email' pk=user.pk %}">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit">Подтвердить</button>
+      <button type="submit" href="{% url 'newsletter:main' %}">Подтвердить</button>
     </form>
 {% endblock %}

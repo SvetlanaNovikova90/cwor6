@@ -20,13 +20,13 @@
           <li class="nav-item"><a class="nav-link" href="#">Заказ</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Блог</a></li>
           {% if user.is_authenticated %}
-          <li class="nav-item"><a class="nav-link" href="#" target="_blank">Выход</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'users:logout'%}" target="_blank">Выход</a></li>
           {% else %}
-          <li class="nav-item"><a class="nav-link" href="#" target="_blank">Вход</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" target="_blank">Регистрация</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'users:login'%}" target="_blank">Вход</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'users:register'%}" target="_blank">Регистрация</a></li>
           {% endif %}
           <li class="nav-item"><a class="nav-link" href="#" target="_blank">Клиенты</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" target="_blank">Рассылки</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'mailing:mailings_manage' %}" target="_blank">Рассылки</a></li>
           <li class="nav-item"><a class="nav-link" href="#" target="_blank">Категории</a></li>
         </ul>
       </div>

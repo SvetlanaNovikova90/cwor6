@@ -1,10 +1,11 @@
 from django.urls import path
 from newsletter.views import ClientsListCreateView, mailing_panel, MailingCreateView, mailings_manage, MailingListView, \
-    MailingDetailView, toggle_block_status
+    MailingDetailView, toggle_block_status, BlogListView
 
 app_name = 'mailing'
 
 urlpatterns = [
+    path('', BlogListView.as_view(), name='main'),
     path('client_list_create/', ClientsListCreateView.as_view(), name='client_list_create'),
     path('mailing_management/', mailing_panel, name='mailing_panel'),
     path('mailing_form/', MailingCreateView.as_view(), name='mailing_form'),

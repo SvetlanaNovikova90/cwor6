@@ -135,6 +135,36 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = 'users.User'
 
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/users/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # из Джанго
+EMAIL_HOST = 'smtp.yandex.ru'  # адрес почтового сервера только для яндекс
+EMAIL_PORT = 465  # порт
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = "seaciliya2012@yandex.ru"
+EMAIL_HOST_PASSWORD = "lgpfprntdkupsdcs"
+EMAIL_USE_TLS = False
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+CACHE_ENABLED = False
+if CACHE_ENABLED:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": 'redis://127.0.0.1:6379'
+        }
+    }
+
+
+
 TIME_CHOICES = [
     ('*/1 * * * *', 'каждую минуту'),
     ('0 0 * * *', 'раз в день'),
