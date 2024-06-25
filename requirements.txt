@@ -11,3 +11,5 @@ pytils==0.4.1
 sqlparse==0.5.0
 python-dotenv
 redis
+generate_password
+apscheduler

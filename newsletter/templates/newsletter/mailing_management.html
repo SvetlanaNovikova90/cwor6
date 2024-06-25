@@ -1,0 +1,32 @@
+{% extends 'newsletter/basic_emplate.html' %}
+
+{% block content %}
+
+<div class="col-12">
+  <form class="row" method="post" enctype="multipart/form-data">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">
+            Управление рассылками
+            {% if user.partner %}
+              {% if user.partner.is_active == True %}
+                <li><a href="{% url 'newsletter:client_list_create' %}" class="text">Создать свой список клиентов</a></li>
+                <li><a href="{% url 'newsletter:mailing_form' %}" class="text">Создать рассылку</a></li>
+                <li><a href="{% url 'newsletter:mailings_list_user' %}" class="text">Просмотреть свои рассылки</a></li>
+              {% endif %}
+            {% else %}
+              <li><a href="{% url 'newsletter:partner_registration' %}" class="text">Зарегистрироваться как партнер</a></li>
+              <li><a href="{% url 'newsletter:client_list_create' %}" class="text">Создать свой список клиентов</a></li>
+              <li><a href="{% url 'newsletter:mailing_form' %}" class="text">Создать рассылку</a></li>
+              <li><a href="{% url 'newsletter:mailings_list_user' %}" class="text">Просмотреть свои рассылки</a></li>
+            {% endif %}
+          </h3>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}

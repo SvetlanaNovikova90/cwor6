@@ -1,0 +1,32 @@
+{% extends 'newsletter/basic_emplate.html' %}
+{% load mediapath %}
+
+{% block content %}
+
+<div class="container">
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <div class="card-body">
+                <h3 class="card-title">{{ object.title }}</h3>
+                <small class="text-body-secondary">Дата публикации: {{ object.date|date:'d-m-Y H:i:s' }}</small><br><br>
+
+                <!-- Форма для блокировки/разблокировки -->
+                <form method="post" action="{% url 'mailing:toggle_block_status' object.id %}">
+                    {% csrf_token %}
+                    <button type="submit">
+                        {% if object.is_active %}
+                            Заблокировать
+                        {% else %}
+                            Разблокировать
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+        </div>
+</div>
+
+{% endblock %}
+
+
+
+
