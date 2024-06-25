@@ -1,0 +1,13 @@
+black==24.4.2
+colorama==0.4.6
+decorator==5.1.1
+Django==4.2
+django-stubs==4.2.7
+pillow==10.3.0
+psycopg2-binary==2.9.9
+pure-eval==0.2.2
+Pygments==2.17.2
+pytils==0.4.1
+sqlparse==0.5.0
+python-dotenv
+redis
