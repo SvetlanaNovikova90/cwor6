@@ -58,6 +58,12 @@ class Mailing(models.Model):
         verbose_name = 'рассылка'
         verbose_name_plural = 'рассылка'
         ordering = ('name_mailing',)
+        permissions = [
+            (
+                'can_blocked',
+                'can_blocked'
+            )
+        ]
 
 
 class Message(models.Model):

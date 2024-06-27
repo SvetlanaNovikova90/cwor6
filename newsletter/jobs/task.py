@@ -2,7 +2,8 @@ import pytz
 from django.conf import settings
 from datetime import datetime
 from django.core.mail import send_mail
-from mailing.models import Mailing, LogMailing
+
+from newsletter.models import LogMailing, Mailing
 
 
 def send_mailing():

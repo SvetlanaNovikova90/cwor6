@@ -38,7 +38,7 @@ class ClientsListCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('newsletter:mailing_panel')
 
     def form_valid(self, form):
-        partner = self.request.user.partner
+        partner = self.request.user
         form.instance.partner = partner
         response = super().form_valid(form)
         return response
@@ -54,7 +54,7 @@ class MailingCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('newsletter:mailing_panel')
 
     def form_valid(self, form):
-        partner = self.request.user.partner
+        partner = self.request.user
         form.instance.partner = partner
         response = super().form_valid(form)
 

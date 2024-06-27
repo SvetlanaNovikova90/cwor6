@@ -1,5 +1,5 @@
 {% extends 'newsletter/basic_emplate.html' %}
-{% load mediapath %}
+{% load my_tags %}
 
 {% block content %}
 
@@ -30,7 +30,7 @@
                 {% endif %}
                  <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="{% url 'mailing:mailing_detail_manage' object.pk %}"
+                        <a href="{% url 'newsletter:mailing_detail_manage' object.pk %}"
                           class="btn btn-sm btn-outline-secondary">Подробнее</a>
                       </div>
                   </div>

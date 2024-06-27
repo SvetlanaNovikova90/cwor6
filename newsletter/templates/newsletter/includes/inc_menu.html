@@ -17,17 +17,18 @@
           <li class="nav-item"><a class="nav-link" href="#">
             <svg class="bi" width="24" height="24"><use xlink:href="#aperture"></use></svg>
           </a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Заказ</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Блог</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'newsletter:main' %}">Главная страница</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'blog:list'%}">Блог</a></li>
           {% if user.is_authenticated %}
           <li class="nav-item"><a class="nav-link" href="{% url 'users:logout'%}" target="_blank">Выход</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'newsletter:mailing_panel' %}" target="_blank">Личный кабинет</a></li>
           {% else %}
           <li class="nav-item"><a class="nav-link" href="{% url 'users:login'%}" target="_blank">Вход</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'users:register'%}" target="_blank">Регистрация</a></li>
           {% endif %}
           <li class="nav-item"><a class="nav-link" href="#" target="_blank">Клиенты</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'mailing:mailings_manage' %}" target="_blank">Рассылки</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" target="_blank">Категории</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'newsletter:mailings_list_manage' %}" target="_blank">Рассылки</a></li>
+
         </ul>
       </div>
     </div>

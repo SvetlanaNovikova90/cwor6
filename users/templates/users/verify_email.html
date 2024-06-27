@@ -7,6 +7,6 @@
     <form method="post" action="{% url 'users:verify_email' pk=user.pk %}">
       {% csrf_token %}
       {{ form.as_p }}
-      <button type="submit" href="{% url 'newsletter:main' %}">Подтвердить</button>
+      <button type="submit" ">Подтвердить</button>
     </form>
 {% endblock %}

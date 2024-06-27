@@ -1,5 +1,5 @@
 {% extends 'newsletter/basic_emplate.html' %}
-{% load mediapath %}
+{% load my_tags %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
             <div class="card mb-4 box-shadow">
               <div class="card-body">
                 <p class="card-text">
-                  Наименование компании: {{ object.name_company }}
+                  Наименование компании: {{ object.email }}
                 </p>
                 {% if object.is_active is True %}
                   <p class="card-text">
@@ -27,7 +27,7 @@
                 {% endif %}
                  <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <a href="{% url 'mailing:partners_detail_manage' object.pk %}"
+                        <a href="{% url 'newsletter:partners_detail_manage' object.pk %}"
                           class="btn btn-sm btn-outline-secondary">Подробнее</a>
                       </div>
                   </div>

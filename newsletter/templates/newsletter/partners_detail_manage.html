@@ -1,5 +1,5 @@
 {% extends 'newsletter/basic_emplate.html' %}
-{% load mediapath %}
+{% load my_tags %}
 
 {% block content %}
 
@@ -10,23 +10,21 @@
                 <h3 class="card-title">{{ object.name_company }}</h3>
 
                 <!-- Вывод информации о рассылке -->
-                <p>Адрес: {{ object.address }}</p>
+                <p>Адрес: {{ object.email }}</p>
                 <p>Телефон: {{ object.phone }}</p>
-                <p>Почта компании: {{ object.email_company }}</p>
+                <p>Почта компании: {{ object.country }}</p>
+                <p>
+                <a href="{% url 'newsletter:mailings_list_manage' %}" class="text">рассылки</a></p>
 
-                <!-- Форма для блокировки/разблокировки -->
-                <form method="post" action="{% url 'mailing:toggle_block_partners' partner_id=object.id %}">
-                    {% csrf_token %}
-                    <button type="submit">
-                        {% if object.is_active %}
-                            Заблокировать
-                        {% else %}
-                            Разблокировать
-                        {% endif %}
-                    </button>
-                </form>
-            </div>
+
+
+
+
+
         </div>
 </div>
+                </div>
+</div>
+
 
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends 'newsletter/basic_emplate.html' %}
-{% load mediapath %}
+
 
 {% block content %}
 
@@ -9,9 +9,10 @@
             <div class="card-body">
                 <h3 class="card-title">{{ object.title }}</h3>
                 <small class="text-body-secondary">Дата публикации: {{ object.date|date:'d-m-Y H:i:s' }}</small><br><br>
-
+                 <h4>Сообщение рассылки:</h4>
+                <p>{{ object.message.theme }}: {{ object.message.text }}</p>
                 <!-- Форма для блокировки/разблокировки -->
-                <form method="post" action="{% url 'mailing:toggle_block_status' object.id %}">
+                 <form method="post" action="{% url 'mailing:toggle_block_status' object.id %}">
                     {% csrf_token %}
                     <button type="submit">
                         {% if object.is_active %}
@@ -21,6 +22,7 @@
                         {% endif %}
                     </button>
                 </form>
+
             </div>
         </div>
 </div>
